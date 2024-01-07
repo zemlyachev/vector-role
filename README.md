@@ -28,4 +28,4 @@ MIT
 Author Information
 ------------------
 
-Andrei Zemliachev
+Andrey Zemlyachev
