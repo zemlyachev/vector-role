@@ -1,2 +1,19 @@
 ---
-# handlers file for vector-role
+- name: Restart vector
+  become: true
+  ansible.builtin.service:
+    name: vector
+    state: restarted
+    daemon_reload: true
+    enabled: true
+  listen: restart vector
+  register: restarted
+  ignore_errors: true
+
+- name: Reload vector
+  become: true
+  ansible.builtin.service:
+    name: vector
+    state: reloaded
+  listen: reload vector
+  when: restarted is not changed
